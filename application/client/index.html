@@ -9,28 +9,28 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 
    <style type="text/css">
-     header{
-       background-color: lightgray;
-       font-size:20px;
-       padding:20px;
-     }
-     header, .form-group{
-       margin-bottom: 3%;
-     }
+      header{
+        background-color: lightgray;
+        font-size:20px;
+        padding:20px;
+      }
+      header, .form-group{
+        margin-bottom: 3%;
+      }
 
-     .form-group{
-       width:50%;
-     }
-     #body{
-       margin-left:3%;
-       margin-right:3%;
-     }
-     .form-control{
-       margin: 8px;
-     }
-     label{
-       font-size:20px;
-     }
+      .form-group{
+        width:50%;
+      }
+      #body{
+        margin-left:3%;
+        margin-right:3%;
+      }
+      .form-control{
+        margin: 8px;
+      }
+      label{
+        font-size:20px;
+      }
    </style>
  </head>
  <body ng-app="application" ng-controller="AppCtrl">
@@ -62,7 +62,7 @@
             <h5 style="color:green;margin-bottom:2%" id="success_init">{{delete_ab}}</h5>
             <br>
             Name: <input class="form-control" type="text" placeholder="Ex: Hyper" ng-model="abstore.a">
-            <input id="deleteAB" type="submit" value="Create" class="btn btn-primary" ng-click="deleteAB()">
+            <input id="deleteAB" type="submit" value="Delete" class="btn btn-primary" ng-click="deleteAB()">
           </div>
       <hr>
       <div class="form-group">
@@ -70,6 +70,11 @@
         <label>Query</label>
         <p><input class="form-control" type="text" placeholder="Ex: A" ng-model="walletid">
         <input id="queryAB" type="submit" value="Search" class="btn btn-primary" ng-click="queryAB()"></p>
+      </div>
+      <div class="form-group">
+        <h5 style="color:green;margin-bottom:2%" id="success_qureyAll">{{query_all}}</h5>
+        <label>Query All</label>
+        <p><input id="queryAll" type="submit" value="Search" class="btn btn-primary" ng-click="queryAll()"></p>
       </div>
     </div>
   </body>
