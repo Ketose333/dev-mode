@@ -56,6 +56,18 @@ app.post('/addCarRecord', (req, res) => {
   sdk.send(false, 'AddCarRecord', args, res);
 });
 
+// 차량 수리기록 조회
+app.get('/getCar', (req, res) => {
+  const { vin } = req.query;  // 쿼리 파라미터에서 vin 받기
+  if (!vin) {
+    return res.status(400).json({ error: "vin is required" });
+  }
+  const args = [vin];
+  sdk.send(true, 'GetCar', args, res);  // true: evaluateTransaction (조회)
+});
+
+
+
 // 포인트 수령
 app.post('/receivePoints', (req, res) => {
   const { vin, points } = req.body;
@@ -69,6 +81,7 @@ app.post('/payPoints', (req, res) => {
   const args = [vin, points];
   sdk.send(false, 'PayPoints', args, res);
 });
+
 
 
 
