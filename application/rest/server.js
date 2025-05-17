@@ -41,6 +41,37 @@ app.get('/queryAll', function (req, res) {
     sdk.send(true, 'GetAllQuery', [], res);
 });
 
+
+// 차량 등록
+app.post('/addCar', (req, res) => {
+  const { vin, owner, model } = req.body;
+  const args = [vin, owner, model];
+  sdk.send(false, 'AddCar', args, res);
+});
+
+// 차량 수리 기록 등록
+app.post('/addCarRecord', (req, res) => {
+  const { vin, record } = req.body;
+  const args = [vin, record];
+  sdk.send(false, 'AddCarRecord', args, res);
+});
+
+// 포인트 수령
+app.post('/receivePoints', (req, res) => {
+  const { vin, points } = req.body;
+  const args = [vin, points];
+  sdk.send(false, 'ReceivePoints', args, res);
+});
+
+// 포인트 사용
+app.post('/payPoints', (req, res) => {
+  const { vin, points } = req.body;
+  const args = [vin, points];
+  sdk.send(false, 'PayPoints', args, res);
+});
+
+
+
 app.use(express.static(path.join(__dirname, '../client')));
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
